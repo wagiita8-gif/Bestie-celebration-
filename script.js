@@ -1,3 +1,22 @@
+const music = document.getElementById("bgMusic");
+const musicBtn = document.getElementById("musicBtn");
+
+musicBtn.addEventListener("click", function () {
+  if (music.paused) {
+    music.play()
+      .then(() => {
+        musicBtn.textContent = "⏸️ Pause Birthday Music";
+      })
+      .catch(error => {
+        console.log("Audio couldn't play:", error);
+        musicBtn.textContent = "❌ Couldn't play music";
+      });
+  } else {
+    music.pause();
+    musicBtn.textContent = "🎵 Play Birthday Music";
+  }
+});
+
 let typing= document.getElementById("typing");
 
 let content=`
