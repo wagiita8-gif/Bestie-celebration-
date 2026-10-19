@@ -39,6 +39,45 @@ body {
   text-align: center;
   animation: bounce 2s infinite ease-in-out;
 }
+#musicBtn {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  padding: 14px 24px;
+  border: 2px solid #ff8de1;
+  border-radius: 30px;
+
+  background: linear-gradient(
+    135deg,
+    #ff4fd8,
+    #9b5cff,
+    #00e5ff
+  );
+
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  font-family: sans-serif;
+
+  cursor: pointer;
+  box-shadow: 0 0 15px #ff4fd8,
+              0 0 30px #9b5cff;
+
+  transition: 0.3s ease;
+  z-index: 1000;
+}
+
+#musicBtn:hover {
+  transform: translateX(-50%) scale(1.08);
+  box-shadow: 0 0 25px #ff4fd8,
+              0 0 45px #00e5ff;
+}
+
+#musicBtn:active {
+  transform: translateX(-50%) scale(0.95);
+}
 
 p {
   font-family: 'Space Grotesk', sans-serif;
