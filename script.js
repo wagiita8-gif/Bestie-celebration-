@@ -17,26 +17,32 @@ musicBtn.addEventListener("click", function () {
   }
 });
 
-let typing= document.getElementById("typing");
+const typing = document.getElementById("typing");
 
-let content=`
-Happy +1 to the Girl who makes my day better without even trying.<br><br>
-Let your cake be bigger than your worries today🎂🎂🎂`;
+const content = [
+  "Happy +1 to the Girl who makes my day better without even trying.",
+  "Let your cake be bigger than your worries today 🎂🎂🎂"
+];
 
-let index=0
+let line = 0;
+let index = 0;
 
-function typewriter(){
-  if ( index < content.length) {
+function typewriter() {
+  if (line >= content.length) return;
 
-    if (content.substring(index, index +4)==="<br>"){
-      typing.innerHTML +="<br>";
-      index+=4;
-    }
-    else{
-      typing.innerHTML += content.charAt(index);
-        index++;
-      }
-    setTimeout(typewriter,60);
+  if (index < content[line].length) {
+    typing.append(document.createTextNode(content[line].charAt(index)));
+    index++;
+    setTimeout(typewriter, 60);
+  } else {
+    if (line < content.length - 1) {
+      typing.append(document.createElement("br"));
+      typing.append(document.createElement("br"));
+      line++;
+      index = 0;
+      setTimeout(typewriter, 60);
     }
   }
+}
+
 typewriter();
